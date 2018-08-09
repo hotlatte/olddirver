@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>修改老师资料</title>
+    <link rel="stylesheet" th:href="@{asserts/css/bootstrap.css}"></link>
+</head>
+<body class="container">
+<br/>
+<h1>修改老师资料</h1>
+<br/><br/>
+<div class="with:80%">
+    <form class="form-horizontal"   th:action="@{/edit}" th:object="${teacher}"  method="post">
+        <input type="hidden" name="id" th:value="*{id}" />
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">姓名</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="name"  id="name" th:value="${teacher.name}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="age" class="col-sm-2 control-label" >年龄</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" name="age" id="age"   th:value="${teacher.age}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cupSize" class="col-sm-2 control-label">罩杯</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="cupSize"  id="cupSize"  th:value="${teacher.cupSize}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="country" class="col-sm-2 control-label">国籍</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="country"  id="country"  th:value="${teacher.country}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="提交" class="btn btn-info" />
+                &nbsp; &nbsp; &nbsp;
+                <a href="/toAdd" th:href="@{/teacherList}" class="btn btn-info">返回</a>
+            </div>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>
